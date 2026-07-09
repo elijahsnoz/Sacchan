@@ -84,25 +84,40 @@ export default function HomePage() {
           <div className="relative mx-auto w-full max-w-xl">
             <div className="sac-panel relative overflow-hidden p-6">
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(215,181,109,0.18),transparent_45%)]" />
-              <div className="relative aspect-[4/5] rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0.02))] p-5">
+              <div className="relative rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0.02))] p-5">
                 <div className="mb-4 flex items-center justify-between text-sm text-slate-300">
-                  <span>Network Visualization</span>
+                  <span>The Sacchan Story</span>
                   <span className="text-sac-gold">SAC / Osaka</span>
                 </div>
-                <div className="flex h-full items-end justify-between gap-3">
-                  {[54, 76, 61, 88, 72, 96].map((height, index) => (
-                    <div key={index} className="flex w-full flex-col items-center gap-3">
-                      <div className="w-full rounded-t-full bg-gradient-to-t from-sac-blue/25 via-sac-gold/70 to-sac-cream shadow-glow" style={{ height: `${height}%` }} />
-                      <div className="h-3 w-3 rounded-full bg-sac-cream" />
-                    </div>
-                  ))}
+                <div className="relative overflow-hidden rounded-[1.5rem] border border-white/10 bg-black">
+                  <video
+                    controls
+                    playsInline
+                    preload="none"
+                    poster="/sacchan-story-poster.jpg"
+                    className="aspect-[662/496] w-full object-cover"
+                  >
+                    <source src="/sacchan-story.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
                 </div>
-                <div className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center gap-3 rounded-full border border-sac-gold/25 bg-slate-950/85 px-5 py-3">
-                  <div className="h-8 w-8 overflow-hidden rounded-full border border-sac-gold/25">
+                <div className="mt-4 flex items-center gap-3 rounded-full border border-sac-gold/25 bg-slate-950/85 px-5 py-3">
+                  <div className="h-8 w-8 shrink-0 overflow-hidden rounded-full border border-sac-gold/25">
                     <Image src="/logo.JPG" alt="SAC logo" width={32} height={32} className="h-full w-full object-cover" />
                   </div>
                   <span className="text-sm font-medium text-white">Collective value flows here</span>
                 </div>
+                <p className="mt-3 text-xs text-slate-400">
+                  How a whole town quietly fed one dog — the true story behind Sacchan.{' '}
+                  <a
+                    href="https://x.com/DoctorLemma/status/2017449510155280872"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sac-gold underline-offset-2 hover:underline"
+                  >
+                    Source: @DoctorLemma
+                  </a>
+                </p>
               </div>
             </div>
           </div>
