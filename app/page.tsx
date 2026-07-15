@@ -7,7 +7,7 @@ import { FeedSacchan } from '@/components/feed-sacchan';
 import { Waitlist } from '@/components/waitlist';
 import { Roadmap } from '@/components/roadmap';
 import { SectionHeading } from '@/components/section-heading';
-import { DiscordIcon, TelegramIcon, XIcon } from '@/components/social-icons';
+import { TelegramIcon, XIcon } from '@/components/social-icons';
 import { StructuredData } from '@/components/structured-data';
 import { StoryTimeline } from '@/components/timeline';
 import { comparisonItems, faqs } from '@/lib/content';
@@ -20,13 +20,6 @@ const communityChannels = [
     href: socialLinks.telegram,
     Icon: TelegramIcon,
     accent: 'hover:border-sac-blue/60 hover:bg-sac-blue/10'
-  },
-  {
-    name: 'Discord',
-    handle: 'Build & govern with us',
-    href: socialLinks.discord,
-    Icon: DiscordIcon,
-    accent: 'hover:border-violet-400/60 hover:bg-violet-400/10'
   },
   {
     name: 'X / Twitter',

@@ -63,7 +63,7 @@ const structuredData = {
       url: SITE_URL,
       logo: `${SITE_URL}/logo.JPG`,
       description: SITE_DESCRIPTION,
-      sameAs: [socialLinks.twitter, socialLinks.telegram, socialLinks.discord]
+      sameAs: [socialLinks.twitter, socialLinks.telegram]
     }
   ]
 };

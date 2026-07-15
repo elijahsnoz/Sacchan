@@ -23,7 +23,9 @@ export const SITE_KEYWORDS = [
 // Community links. Handle is "SacchanCoin" across social.
 export const socialLinks = {
   telegram: 'https://t.me/SacchanCoin',
-  // TODO: paste your Discord invite (e.g. https://discord.gg/xxxxxxx) or ask to remove the Discord button.
+  // Not shown in the UI right now. To re-enable: paste a real invite here, add a
+  // Discord entry back to `communityChannels` in app/page.tsx, and add
+  // socialLinks.discord back to `sameAs` in app/layout.tsx.
   discord: 'https://discord.gg/YOUR_INVITE',
   twitter: 'https://x.com/SacchanCoin'
 };
