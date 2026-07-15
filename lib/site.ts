@@ -1,8 +1,8 @@
 // Central site config. Update the placeholders below and the values flow
 // everywhere (metadata, sitemap, robots, JSON-LD, and the community CTAs).
 
-// TODO: replace with your real production domain (no trailing slash).
-export const SITE_URL = 'https://sacchan-token.example';
+// Production domain (no trailing slash).
+export const SITE_URL = 'https://sacchan.com';
 
 export const SITE_NAME = 'Sacchan Token (SAC)';
 
