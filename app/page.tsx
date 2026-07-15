@@ -3,10 +3,49 @@ import Image from 'next/image';
 import { AnimatedNetwork } from '@/components/animated-network';
 import { Faq } from '@/components/faq';
 import { FeatureGrid } from '@/components/feature-grid';
+import { FeedSacchan } from '@/components/feed-sacchan';
+import { Waitlist } from '@/components/waitlist';
 import { Roadmap } from '@/components/roadmap';
 import { SectionHeading } from '@/components/section-heading';
+import { DiscordIcon, TelegramIcon, XIcon } from '@/components/social-icons';
+import { StructuredData } from '@/components/structured-data';
 import { StoryTimeline } from '@/components/timeline';
-import { comparisonItems } from '@/lib/content';
+import { comparisonItems, faqs } from '@/lib/content';
+import { socialLinks } from '@/lib/site';
+
+const communityChannels = [
+  {
+    name: 'Telegram',
+    handle: 'Join the daily chat',
+    href: socialLinks.telegram,
+    Icon: TelegramIcon,
+    accent: 'hover:border-sac-blue/60 hover:bg-sac-blue/10'
+  },
+  {
+    name: 'Discord',
+    handle: 'Build & govern with us',
+    href: socialLinks.discord,
+    Icon: DiscordIcon,
+    accent: 'hover:border-violet-400/60 hover:bg-violet-400/10'
+  },
+  {
+    name: 'X / Twitter',
+    handle: 'Follow the legend',
+    href: socialLinks.twitter,
+    Icon: XIcon,
+    accent: 'hover:border-sac-gold/60 hover:bg-sac-gold/10'
+  }
+];
+
+const faqStructuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((faq) => ({
+    '@type': 'Question',
+    name: faq.question,
+    acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+  }))
+};
 
 const tokenStats = [
   { label: 'Token Name', value: 'Sacchan Token' },
@@ -256,9 +295,29 @@ export default function HomePage() {
           </div>
           <div className="sac-panel flex flex-col justify-between gap-6 p-8">
             <div>
-              <p className="text-xs uppercase tracking-[0.35em] text-sac-blue">Call to action</p>
-              <h3 className="mt-2 text-2xl font-semibold text-white">Join the collective value network</h3>
-              <p className="mt-4 text-sm leading-7 text-slate-300">Build a future where every contribution matters and every supporter leaves a visible footprint on the ecosystem.</p>
+              <p className="text-xs uppercase tracking-[0.35em] text-sac-blue">Join the collective</p>
+              <h3 className="mt-2 text-2xl font-semibold text-white">Find your channel</h3>
+              <p className="mt-4 text-sm leading-7 text-slate-300">Every contribution matters and every supporter leaves a visible footprint. Pick where you want to show up.</p>
+            </div>
+            <div className="flex flex-col gap-3">
+              {communityChannels.map(({ name, handle, href, Icon, accent }) => (
+                <a
+                  key={name}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`group flex items-center gap-4 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 transition ${accent}`}
+                >
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-slate-950/60 text-sac-cream">
+                    <Icon className="h-5 w-5" />
+                  </span>
+                  <span className="flex-1">
+                    <span className="block text-sm font-semibold text-white">{name}</span>
+                    <span className="block text-xs text-slate-400">{handle}</span>
+                  </span>
+                  <ArrowRight className="h-4 w-4 text-slate-500 transition group-hover:translate-x-0.5 group-hover:text-white" />
+                </a>
+              ))}
             </div>
             <div className="flex gap-3">
               <a href="/whitepaper.pdf" target="_blank" rel="noopener noreferrer" className="rounded-full bg-sac-cream px-5 py-3 text-sm font-semibold text-slate-950">Read Whitepaper</a>
@@ -268,7 +327,16 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section id="feed" className="mx-auto max-w-7xl px-6 py-24 sm:px-8 lg:px-12">
+        <SectionHeading eyebrow="Take part" title="Feed the legend, join the town" description="Two small acts: add a meal to Sacchan’s bowl, and leave your mark so we can tell you when SAC goes live." />
+        <div className="mt-12 grid gap-6 lg:grid-cols-2">
+          <FeedSacchan />
+          <Waitlist />
+        </div>
+      </section>
+
       <section id="faq" className="mx-auto max-w-7xl px-6 py-24 sm:px-8 lg:px-12">
+        <StructuredData data={faqStructuredData} />
         <SectionHeading eyebrow="FAQ" title="Answers for first-time visitors" description="A clear explanation of the story, the token, and the connection between legend and Web3 utility." />
         <div className="mt-12"><Faq /></div>
       </section>
