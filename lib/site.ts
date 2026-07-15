@@ -20,15 +20,16 @@ export const SITE_KEYWORDS = [
   'decentralized community'
 ];
 
-// TODO: paste your real community links here.
+// Community links. Handle is "SacchanCoin" across social.
 export const socialLinks = {
-  telegram: 'https://t.me/YOUR_TELEGRAM',
+  telegram: 'https://t.me/SacchanCoin',
+  // TODO: paste your Discord invite (e.g. https://discord.gg/xxxxxxx) or ask to remove the Discord button.
   discord: 'https://discord.gg/YOUR_INVITE',
-  twitter: 'https://x.com/YOUR_HANDLE'
+  twitter: 'https://x.com/SacchanCoin'
 };
 
-// TODO: your X/Twitter @handle (used for Twitter card attribution).
-export const TWITTER_HANDLE = '@YOUR_HANDLE';
+// X/Twitter @handle (used for Twitter card attribution).
+export const TWITTER_HANDLE = '@SacchanCoin';
 
 // TODO: paste a serverless form endpoint to enable the waitlist form.
 // e.g. Formspree: 'https://formspree.io/f/xxxxxxx'  (no backend/DB to run).
